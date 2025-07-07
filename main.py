@@ -20,18 +20,22 @@ def main():
 
     snake = Snake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     food = Food(get_free_space(valid_coords, snake.position))
+    
 
     dt = 0
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                return
+                return        
 
         screen.fill("black")
 
+        keys = pygame.key.get_pressed()
+
         snake.draw(screen)
         food.draw(screen)
+        snake.handle_input(keys)
         snake.update()
         pygame.display.flip()
 

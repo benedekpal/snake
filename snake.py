@@ -61,6 +61,16 @@ class Snake:
             self.body.pop()
         self.head = (newHeadX, newHeadY)
 
+    def handle_input(self, keys):
+        if keys[pygame.K_UP] and self.direction != (0, 1):
+            self.nextDirection = (0, -1)
+        elif keys[pygame.K_DOWN] and self.direction != (0, -1):
+            self.nextDirection = (0, 1)
+        elif keys[pygame.K_LEFT] and self.direction != (1, 0):
+            self.nextDirection = (-1, 0)
+        elif keys[pygame.K_RIGHT] and self.direction != (-1, 0):
+            self.nextDirection = (1, 0)
+
     @property
     def position(self):
         return self.body + [self.head]
