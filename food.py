@@ -10,7 +10,7 @@ class Food:
         return pygame.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
 
     def draw(self, screen):
-        pygame.draw.rect(screen, "white", self.square(self.position[0], self.position[1]), 2)
+        pygame.draw.rect(screen, "red", self.square(self.position[0], self.position[1]))
 
     @property
     def position(self):
