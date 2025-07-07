@@ -36,9 +36,8 @@ def show_scoreboard(screen, highscores):
         screen.blit(text, (0, index * LINE_OFFSET))
         index += 1
 
-    pygame.display.flip()             # Flip once
+    pygame.display.flip()
     
-    # Now wait for user to close or press key
     waiting = True
     while waiting:
         for event in pygame.event.get():
@@ -109,7 +108,6 @@ def main():
 
     snake = Snake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     food = Food(get_free_space(valid_coords, snake.position))
-    #print("freespace: ", get_free_space(valid_coords, snake.position))
 
     dt = 0
 
@@ -126,8 +124,6 @@ def main():
         food.draw(screen)
 
         if snake.selfe_colison():
-            #print("Game over!")
-            #print(f"Your Score: {snake.score}")
             highScores = load_scores()
             score = snake.score
             if check_scores(score, highScores):
